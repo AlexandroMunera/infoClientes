@@ -1,0 +1,39 @@
+﻿@model IEnumerable<infoClientes.Models.Ciudad>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Ciudades</h2>
+
+<p>
+    @Html.ActionLink("Nueva ciudad", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Departamento.nomDepartamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nomCiudad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Departamento.nomDepartamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomCiudad)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idCiudad }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idCiudad }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idCiudad })
+        </td>
+    </tr>
+}
+
+</table>

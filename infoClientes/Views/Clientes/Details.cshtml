@@ -1,0 +1,81 @@
+﻿@model infoClientes.Models.Cliente
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ciudad.nomCiudad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudad.nomCiudad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cupo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cupo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaldoCupo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaldoCupo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PorcentajeVisitas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PorcentajeVisitas)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idCliente }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

@@ -1,0 +1,39 @@
+﻿@model infoClientes.Models.Departamento
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Estas seguro de eliminar esto?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Pais.nomPais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pais.nomPais)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nomDepartamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomDepartamento)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

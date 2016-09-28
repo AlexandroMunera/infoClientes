@@ -1,0 +1,88 @@
+﻿@model IEnumerable<infoClientes.Models.Visitas>
+
+@{
+    ViewBag.Title = "Movimientos Clientes";
+}
+
+<h2>Movimientos Clientes</h2>
+
+<div class="form-group">
+    <label class="control-label col-md-2">Cliente</label>
+
+    <div class="col-md-10">
+        @Html.DropDownList("Clientes", null, "Seleccione un cliente", htmlAttributes: new { @class = "form-control" })
+    </div>
+    <br />
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Nit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Cupo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.SaldoCupo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.PorcentajeVisitas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorNeto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorVisita)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.NitDesencriptado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.Cupo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.SaldoCupo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.PorcentajeVisitas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorNeto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorVisita)
+        </td>
+    </tr>
+}
+
+</table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#Clientes').change(function () {
+
+            var idCliente = $('#Clientes').val();    
+
+            window.location.href = '@Url.Action("MovimientosClientes", "Reportes", new { idCliente = "_id_" })'.replace("_id_", idCliente)
+            
+        });
+    });
+</script>

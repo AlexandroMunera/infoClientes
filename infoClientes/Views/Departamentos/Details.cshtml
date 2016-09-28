@@ -1,0 +1,33 @@
+﻿@model infoClientes.Models.Departamento
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Pais.nomPais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pais.nomPais)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nomDepartamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomDepartamento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idDepartamento }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

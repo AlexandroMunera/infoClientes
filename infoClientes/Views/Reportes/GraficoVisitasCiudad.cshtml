@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Grafico Visitas Ciudad";
+}
+
+<h2>Grafico Visitas Ciudad</h2>
+
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+
+        var url = '@Url.Action("GetVisitasPorCiudad", "Reportes")';
+
+        $.ajax({
+            url: url,
+            dataType: "json",
+            type: "POST",
+            contentType: 'application/json; charset=utf-8',
+            async: false,
+            processData: false,
+            cache: false,
+            delay: 15,
+            success: function (data) {
+                // alert(data);
+                var datos = [];
+                var ciudades = [];
+                for (var i in data) {
+                    //var dato = new Array(data[i].Ciudad, data[i].CantidadVisitas);
+                    datos.push([data[i].Ciudad, data[i].CantidadVisitas]);
+                    ciudades.push(data[i].Ciudad);
+                }
+                console.log(datos);
+                console.log(ciudades);
+                PintarGrafico(datos, ciudades);
+            },
+            error: function (xhr) {
+                alert('error');
+            }
+        });
+
+    });
+
+    function PintarGrafico(datos, ciudades) {
+        $('#container').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Cantidad visitas por ciudad'
+            },
+            subtitle: {
+                text: 'Source: infoClientes'
+            },
+            xAxis: {
+                title: { text: 'Ciudades' },
+                categories: ciudades,
+                visible: true,
+                labels: {
+                    rotation: -45,
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Cantidad visitas'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            tooltip: {
+                pointFormat: 'Cantidad visitas: <b>{point.y} </b>'
+            },
+            series: [{
+                name: 'Visitas',
+                data: datos,
+                dataLabels: {
+                    enabled: true,
+                    rotation: -90,
+                    color: '#FFFFFF',
+                    align: 'right',
+                    format: '{point.y}',
+                    y: 10, // 10 pixels down from the top
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            }]
+        });
+    }
+
+</script>
+
+<div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>

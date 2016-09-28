@@ -1,0 +1,25 @@
+﻿@model infoClientes.Models.Pais
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nomPais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomPais)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idPais }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

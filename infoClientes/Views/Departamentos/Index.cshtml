@@ -1,0 +1,39 @@
+﻿@model IEnumerable<infoClientes.Models.Departamento>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Departamentos</h2>
+
+<p>
+    @Html.ActionLink("Nuevo departamento", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Pais.nomPais)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nomDepartamento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pais.nomPais)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomDepartamento)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idDepartamento }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idDepartamento }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idDepartamento })
+        </td>
+    </tr>
+}
+
+</table>

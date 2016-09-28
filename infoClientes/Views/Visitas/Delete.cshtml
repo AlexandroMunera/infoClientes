@@ -1,0 +1,71 @@
+﻿@model infoClientes.Models.Visitas
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Esta seguro de eliminar esto?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vendedor.Nit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vendedor.Nit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.Nit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Nit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorNeto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorNeto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorVisita)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorVisita)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observaciones)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

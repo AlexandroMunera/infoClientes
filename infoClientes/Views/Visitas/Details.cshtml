@@ -1,0 +1,65 @@
+﻿@model infoClientes.Models.Visitas
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vendedor.Nit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vendedor.Nit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.Nit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Nit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorNeto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorNeto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorVisita)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorVisita)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observaciones)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idVisitas }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

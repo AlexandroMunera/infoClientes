@@ -1,0 +1,63 @@
+﻿@model IEnumerable<infoClientes.Models.Visitas>
+
+@{
+    ViewBag.Title = "Visitas";
+}
+
+<h2>Visitas</h2>
+
+<p>
+    @Html.ActionLink("Nueva visita", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Vendedor.Nit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Nit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorNeto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorVisita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Observaciones)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vendedor.NitDesencriptado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.NitDesencriptado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorNeto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorVisita)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Observaciones)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idVisitas }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idVisitas }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idVisitas })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<infoClientes.Models.Cliente>
+
+@{
+    ViewBag.Title = "Clientes";
+}
+
+<h2>Clientes</h2>
+
+<p>
+    @Html.ActionLink("Nuevo cliente", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ciudad.nomCiudad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cupo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SaldoCupo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PorcentajeVisitas)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ciudad.nomCiudad)
+        </td>
+        <td>            
+            @Html.DisplayFor(modelItem => item.NitDesencriptado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cupo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SaldoCupo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PorcentajeVisitas)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idCliente }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idCliente }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idCliente })
+        </td>
+    </tr>
+}
+
+</table>
