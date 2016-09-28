@@ -31,9 +31,7 @@ namespace infoClientes
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-        }
-
-     
+        }   
 
         private void CheckDatos()
         {
@@ -58,7 +56,7 @@ namespace infoClientes
 
             var antioquia = db.Departamentos.Where(p => p.nomDepartamento == "Antioquia").FirstOrDefault();
 
-            if (antioquia == null) //Si no existe el pais colombia, crearlo
+            if (antioquia == null) 
             {
                 antioquia = new Departamento
                 {
@@ -72,7 +70,7 @@ namespace infoClientes
 
             var cundinamarca = db.Departamentos.Where(p => p.nomDepartamento == "Cundinamarca").FirstOrDefault();
 
-            if (cundinamarca == null) //Si no existe el pais colombia, crearlo
+            if (cundinamarca == null) 
             {
                 cundinamarca = new Departamento
                 {
@@ -90,7 +88,7 @@ namespace infoClientes
 
             var medellin = db.Ciudades.Where(p => p.nomCiudad == "Medellín").FirstOrDefault();
 
-            if (medellin == null) //Si no existe el pais colombia, crearlo
+            if (medellin == null) 
             {
                 medellin = new Ciudad
                 {
@@ -104,7 +102,7 @@ namespace infoClientes
 
             var bogota = db.Ciudades.Where(p => p.nomCiudad == "Bogotá").FirstOrDefault();
 
-            if (bogota == null) //Si no existe el pais colombia, crearlo
+            if (bogota == null) 
             {
                 bogota = new Ciudad
                 {
@@ -126,7 +124,7 @@ namespace infoClientes
             var sgi = new Sgi.Encrypter.Encrypter();
 
 
-            if (alexandro == null) //Si no existe el pais colombia, crearlo
+            if (alexandro == null) 
             {
                 
                 alexandro = new Cliente
@@ -151,7 +149,7 @@ namespace infoClientes
 
             var javier = db.Vendedores.Where(p => p.Nit == "987").FirstOrDefault();
 
-            if (javier == null) //Si no existe el pais colombia, crearlo
+            if (javier == null) 
             {
                 javier = new Vendedor
                 {
@@ -166,7 +164,6 @@ namespace infoClientes
             }
 
             #endregion
-
         }
 
         private void CheckSuperUser()
